@@ -28,4 +28,11 @@ hmap-prebuilt基于美团的[一款可以让大型iOS工程编译速度提升50%
 2. 运行`create_test_modules.rb`创建测试组件
 3. 执行 pod install 并运行项目
 
-## 最后
+## 作者
+
+NeroXie, xyh30902@163.com
+
+## 许可证
+
+NNBox 基于 MIT 许可证，查看 LICENSE 文件了解更多信息。
+
