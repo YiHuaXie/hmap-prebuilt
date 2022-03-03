@@ -22,7 +22,7 @@ def main(start_dir)
   end
 
   code = "
-require_relative \"\#{File.expand_path('../../', Pod::Config.instance.installation_root)}/hmap_prebuilt.rb\"
+require_relative \"\#{File.expand_path('../../', Pod::Config.instance.installation_root)}/hmap-prebuilt/hmap_prebuilt.rb\"
 # use_frameworks!
 platform :ios, '10.0'
 

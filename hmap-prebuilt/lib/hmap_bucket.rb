@@ -1,5 +1,5 @@
-# require File.join(File.dirname(__FILE__), 'hmap_utils.rb')
-
+# frozen_string_literal: true
+#
 HEADER_CONST = {
   HMAP_HEADER_MAGIC_NUMBER: 0x686d6170,
   HMAP_HEADER_VERSION: 0x0001,

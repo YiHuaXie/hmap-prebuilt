@@ -4,15 +4,15 @@ require 'fileutils'
 require 'xcodeproj'
 require 'pp'
 
-require File.join(File.dirname(__FILE__), './hmap-prebuilt/hmap_utils.rb')
-require File.join(File.dirname(__FILE__), './hmap-prebuilt/hmap_saver.rb')
-require File.join(File.dirname(__FILE__), './hmap-prebuilt/hmap_bucket.rb')
-require File.join(File.dirname(__FILE__), './hmap-prebuilt/mapfile.rb')
+require File.join(File.dirname(__FILE__), './lib/hmap_utils.rb')
+require File.join(File.dirname(__FILE__), './lib/hmap_saver.rb')
+require File.join(File.dirname(__FILE__), './lib/hmap_bucket.rb')
+require File.join(File.dirname(__FILE__), './lib/mapfile.rb')
 
 def hmap_prebuilt(installer)
   HMapUtils.log('statrt to prebuilt !!!')
   start_time = Time.now
-  
+
   # 遍历所有头文件, 获取头文件绝对路径，并将结果保存在hmap_hash中
   hmap_hash = {}
   installer.pod_targets.each do |target|
@@ -57,7 +57,7 @@ def hmap_prebuilt(installer)
   # 将json转换为hmap
   hmap_json = JSON.parse(File.read(hmap_prebuilt_file_json_path))
   HMapSaver.new_from_buckets(hmap_json).write_to(hmap_prebuilt_file_hmap_path)
-  `rm -rf #{hmap_prebuilt_file_json_path}`
+  # `rm -rf #{hmap_prebuilt_file_json_path}`
   HMapUtils.log('prebuilt header map finish, used %.2f s' % (Time.now - start_time).to_f)
 
   # 关闭所有组件的 USE_HEADERMAP, 其余手动关闭
